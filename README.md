@@ -1,5 +1,5 @@
 # dart-epub
-Forked from [dart-epub by Colin Nelson](https://github.com/orthros/dart-epub)
+Forked from [dart-epub by Colin Nelson](https://github.com/orthros/dart-epub) > https://github.com/creatint/dart-epub-cn
 
 Because some epubs cannot be parsed correctly in China, I removed some restrictions of namespace(http://www.idpf.org/2007/ops) for parsing xml in *lib/src/entities/readers/package_reader.dart PackageReader*.
 
@@ -14,7 +14,7 @@ Add the package to the ```dependencies``` section of your pubspec.yaml
 ```
 dependencies:
   epub:
-    git: https://github.com/creatint/dart-epub-cn
+    git: https://github.com/l-k22/dart-epub-lk
 ```
 
 ## Example
