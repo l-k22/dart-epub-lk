@@ -72,10 +72,12 @@ class BookCoverReader {
       throw new Exception(
           "Incorrect EPUB manifest: item with href = \"${coverManifestItem.Href}\" is missing.");
 
-    coverImageContentFileRef = bookRef.Content.Images[coverManifestItem.Href];
-    List<int> coverImageContent =
+    if (coverManifestItem != null){
+      coverImageContentFileRef = bookRef.Content.Images[coverManifestItem.Href];
+      List<int> coverImageContent =
         await coverImageContentFileRef.readContentAsBytes();
-    images.Image retval = images.decodeImage(coverImageContent);
-    return retval;
+      images.Image retval = images.decodeImage(coverImageContent);
+      return retval;
+    }
   }
 }
