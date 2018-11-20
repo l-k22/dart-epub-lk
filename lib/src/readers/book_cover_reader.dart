@@ -85,6 +85,7 @@ class BookCoverReader {
     }
     }catch(e){
       print("Incorrect EPUB metadata: cover item content is missing.");
+      return null;
     }
   }
 }
