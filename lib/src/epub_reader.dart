@@ -63,7 +63,11 @@ class EpubReader {
     result.AuthorList = epubBookRef.AuthorList;
     result.Author = epubBookRef.Author;
     result.Content = await readContent(epubBookRef.Content);
+    try{
     result.CoverImage = await epubBookRef.readCover();
+    }catch(e){
+      print('readBook result.CoverImage $e');
+    }
     List<EpubChapterRef> chapterRefs = await epubBookRef.getChapters();
     result.Chapters = await readChapters(chapterRefs);
 
@@ -80,7 +84,11 @@ class EpubReader {
     result.AuthorList = epubBookRef.AuthorList;
     result.Author = epubBookRef.Author;
     result.Content = readContentSync(epubBookRef.Content);
+    try{
     result.CoverImage = epubBookRef.readCoverSync();
+    }catch(e){
+      print('readBookSync result.CoverImage $e');
+    }
     List<EpubChapterRef> chapterRefs = epubBookRef.getChaptersSync();
     result.Chapters = readChaptersSync(chapterRefs);
 
