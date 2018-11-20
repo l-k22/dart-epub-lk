@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert' as convert;
+import 'package:dart2_constant/convert.dart' as convert;
 
 import 'package:archive/archive.dart';
 
