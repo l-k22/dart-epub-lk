@@ -67,6 +67,7 @@ class BookCoverReader {
     try{
     if (coverManifestItem == null){
      // throw new Exception("Incorrect EPUB manifest: item with ID = \"${coverMetaItem.Content}\" is missing.");
+      print("Incorrect EPUB manifest: item with ID = \"${coverMetaItem.Content}\" is missing.");
     }
 
     EpubByteContentFileRef coverImageContentFileRef;
