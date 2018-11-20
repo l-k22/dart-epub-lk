@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert' as convert;
 
 import 'package:archive/archive.dart';
 import 'package:xml/xml.dart' as xml;
@@ -17,7 +17,7 @@ class RootFilePathReader {
     }
 
     xml.XmlDocument containerDocument =
-    xml.parse(UTF8.decode(containerFileEntry.content));
+    xml.parse(convert.UTF8.decode(containerFileEntry.content));
     xml.XmlElement packageElement = containerDocument
         .findAllElements("container",
         namespace: "urn:oasis:names:tc:opendocument:xmlns:container")
@@ -46,7 +46,7 @@ class RootFilePathReader {
     }
 
     xml.XmlDocument containerDocument =
-        xml.parse(UTF8.decode(containerFileEntry.content));
+        xml.parse(convert.UTF8.decode(containerFileEntry.content));
     xml.XmlElement packageElement = containerDocument
         .findAllElements("container",
             namespace: "urn:oasis:names:tc:opendocument:xmlns:container")
