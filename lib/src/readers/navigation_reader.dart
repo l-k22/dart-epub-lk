@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
+import 'dart:convert' as convert;
 
 import 'package:xml/xml.dart' as xml;
 import 'package:archive/archive.dart';
@@ -53,7 +53,7 @@ class NavigationReader {
     }
 
     xml.XmlDocument containerDocument =
-    xml.parse(UTF8.decode(tocFileEntry.content));
+    xml.parse(convert.UTF8.decode(tocFileEntry.content));
 
     String ncxNamespace = "http://www.daisy.org/z3986/2005/ncx/";
     xml.XmlElement ncxNode = containerDocument
