@@ -44,7 +44,7 @@ class BookCoverReader {
     return retval;
   }
   static Future<images.Image> readBookCover(EpubBookRef bookRef) async {
-    try{
+    
     List<EpubMetadataMeta> metaItems =
         bookRef.Schema.Package.Metadata.MetaItems;
     if (metaItems == null || metaItems.length == 0) return null;
@@ -64,6 +64,7 @@ class BookCoverReader {
                 manifestItem.Id.toLowerCase() ==
                 coverMetaItem.Content.toLowerCase(),
             orElse: () => null);
+    try{
     if (coverManifestItem == null){
      // throw new Exception("Incorrect EPUB manifest: item with ID = \"${coverMetaItem.Content}\" is missing.");
     }
@@ -71,6 +72,7 @@ class BookCoverReader {
     EpubByteContentFileRef coverImageContentFileRef;
     if (!bookRef.Content.Images.containsKey(coverManifestItem.Href)){
      // throw new Exception("Incorrect EPUB manifest: item with href = \"${coverManifestItem.Href}\" is missing.");
+      print("Incorrect EPUB manifest: item with href = \"${coverManifestItem.Href}\" is missing.");
     }
 
     if (coverManifestItem != null){
@@ -82,7 +84,6 @@ class BookCoverReader {
     }
     }catch(e){
       print("Incorrect EPUB metadata: cover item content is missing.");
-      print("Incorrect EPUB manifest: item with href = \"${coverManifestItem.Href}\" is missing.");
     }
   }
 }
